@@ -7,6 +7,8 @@ const platforms = []
 const platform_width = 120
 const platform_height = 10
 let interval
+let animate = 0
+ let cycleLoopCoDer= [0,1,2,4]
 
 const images={
     niveles:{

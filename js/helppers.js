@@ -7,7 +7,7 @@ addEventListener('keydown', (e) => {
     clearInterval(interval)
     interval = false
   } else if (e.keyCode === 39) {
-    mario.moveRight()
+    gamer1.moveRight()
   } else if (e.keycode === 82) {
     location.reload(true)
   }

@@ -23,35 +23,54 @@ class Board {
 class Ostrich {
   constructor() {
     this.x = 5
-    this.y = canvas.height - 50
+    this.y = 5
     this.width = 50
     this.height = 50
-    
+    this.speed= 5
+    this.velX= 0
+    this.velY= 0
+    //fisica
+    this.jumping= false,
+    this.jumpStrength= 7,
+    this.grounded= false,
+    //imagen
     this.standDer = new Image()
-    
-
-   
     this.standDer.src = images.ostrichs.standDer
+    this.standDer.onload = () => {
+      this.draw()
+    }
+    this.caminarDer= new Image()
+    this.caminarDer.src = images.ostrichs.caminandoDer
+    
+   
+   
   }
   draw() {
-    this.y += 2
-    if (frames % 5 === 0) {
-      this.img =
-        animateHelper === 0 ? this.flappyUp :
-        animateHelper === 1 ? this.flappyMid :
-        animateHelper === 2 ? this.flappyDown : this.flappyMid
-      if (animateHelper < 4) {
-        animateHelper++
-      } else {
-        animateHelper = 0
-      }
+    //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
+    if(frames % 8 === 0){
+      animate++
+      if(animate === 4) animate = 0
     }
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    //ctx.clearRect(0,0,canvas.width, canvas.height)
+    ctx.drawImage(
+      this.caminarDer, //imagen
+      cycleLoopCoDer[animate] *92.8, // posición en x, de la imagen
+      // iteramos entre los estados de la imagen: 0, 16, 32
+      0, // posición en y, de la imagen sobre canvas
+     // iteramos entre los estados de la imagen: 0, 16, 32
+      92.4, // ancho de la fuente (imagen)
+      50, //alto de la fuente (imagen)
+     this.x, // el punto x de destino en el canvas
+      90, // el punto y de destino en el canvas
+      92.4, // ancho de la imagen en canvas
+      50 // alto de la imagen en canvas
+    );
   }
-  flap() {
-    console.log("ADSasdas");
+  
+  moveRight() {
+    console.log("ADSasdas", this.x);
 
-    this.y -= 25
+    this.x += 50
   }
   isTouching(pipe) {
     return (this.x < pipe.x + pipe.width &&
