@@ -9,8 +9,8 @@ class Board {
     // this.img.onload = () => {
     //   this.draw()
     // }
-   this.audio = new Audio()
-   this.audio.src = 'http://23.237.126.42/ost/super-mario-bros/khbnvkqp/01%20-%20Super%20Mario%20Bros.mp3'
+    this.audio = new Audio()
+    this.audio.src = 'http://23.237.126.42/ost/super-mario-bros/khbnvkqp/01%20-%20Super%20Mario%20Bros.mp3'
   }
   draw() {
     //if (this.x < -canvas.width) this.x = 0
@@ -23,60 +23,60 @@ class Board {
 class Ostrich {
   constructor() {
     this.x = 5
-    this.y = canvas.height-100
+    this.y = canvas.height - 100
     this.width = 50
     this.height = 50
-    this.speed= 5
-    this.velX= 0
-    this.velY= 0
+    this.speed = 5
+    this.velX = 0
+    this.velY = 0
     //fisica
-    this.jumping= false,
-    this.jumpStrength= 7,
-    this.grounded= false,
-    //imagen
-    this.standDer = new Image()
+    this.jumping = false,
+      this.jumpStrength = 7,
+      this.grounded = false,
+      //imagen
+      this.standDer = new Image()
     this.standDer.src = images.ostrichs.standDer
     // this.standDer.onload = () => {
     //   this.draw()
     // }
-    this.caminarDer= new Image()
+    this.caminarDer = new Image()
     this.caminarDer.src = images.ostrichs.caminandoDer
-    
-   
-   
+
+
+
   }
   drawRight() {
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
-    if(frames % 11 === 0){
+    if (frames % 11 === 0) {
       animate++
-      if(animate === 4) animate = 0
+      if (animate === 4) animate = 0
     }
     //ctx.clearRect(0,0,canvas.width, canvas.height)
     ctx.drawImage(
       this.caminarDer, //imagen
-      cycleLoopCoDer[animate] *92.8, // posición en x, de la imagen
+      cycleLoopCoDer[animate] * 92.8, // posición en x, de la imagen
       // iteramos entre los estados de la imagen: 0, 16, 32
       0, // posición en y, de la imagen sobre canvas
-     // iteramos entre los estados de la imagen: 0, 16, 32
+      // iteramos entre los estados de la imagen: 0, 16, 32
       92.4, // ancho de la fuente (imagen)
       50, //alto de la fuente (imagen)
-     this.x, // el punto x de destino en el canvas
+      this.x, // el punto x de destino en el canvas
       this.y, // el punto y de destino en el canvas
       92.4, // ancho de la imagen en canvas
       50 // alto de la imagen en canvas
     );
-  
+
 
   }
-  drawStaticRight(){
-        ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
+  drawStaticRight() {
+    ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height)
 
   }
-  
-  moveRight() {
-    console.log("mover derecha", this.x);
-    this.x += 50
-  }
+
+  // moveRight() {
+  //   console.log("mover derecha", this.x);
+  //   this.x += 50
+  // }
 
   isTouching(pipe) {
     return (this.x < pipe.x + pipe.width &&
@@ -84,4 +84,19 @@ class Ostrich {
       this.y > pipe.y + pipe.height &&
       this.y + pipe.height > pipe.y)
   }
+}
+
+class Plataforms{
+  constructor(x,y,platformWidth,platformHeight,color){
+    this.x=x,
+    this.y=y,
+    this.width= platformWidth,
+    this.height= platformHeight
+    this.color=color
+  }
+  draw(){
+    ctx.fillStyle = this.color
+    ctx.fillRect(this.x, this.y, this.width, this.height)
+  }
+  
 }

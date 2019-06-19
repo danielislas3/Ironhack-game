@@ -33,10 +33,14 @@ function collisionCheck(char, plat) {
   }
   return collisionDirection
 }
-
-const scenario = new Board()
-const player1= new Ostrich()
-
+function drawPlatforms()  {
+  ctx.fillStyle = platforms[0].color
+  platforms.map(platform =>{
+    ctx.fillStyle=platform.color 
+   return ctx.fillRect(platform.x, platform.y, platform.width, platform.height)
+  }
+  )
+}
 function intro_screen() {
   ctx.font = '20px Arial'
   ctx.fillText('Press Enter To Start',( canvas.width/2)-100, (canvas.height / 2) )
@@ -46,6 +50,8 @@ function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   frames++
   scenario.draw()
+  drawPlatforms()
+ 
   
   //si no hay movimiento dibuja estatico
    if(((keys[37]||keys[39]) === (undefined||false)) || ((keys[37]||keys[39])===undefined)){
@@ -84,13 +90,6 @@ function update() {
   player1.velX *= friction
 
   //collition
-  platforms.push({
-    x: -canvas.width,
-    y: canvas.height - 30,
-    width: canvas.width + canvas.width * 2,
-    height: platform_height
-  })
-
   player1.grounded = false
   platforms.map(platform => {
     const direction = collisionCheck(player1, platform)
@@ -116,6 +115,18 @@ function startGame() {
   interval = setInterval(update, 1000 / 60)
 }
 
+const scenario = new Board()
+const player1= new Ostrich()
+const plataf1= new Plataforms(400,400,platform_width,platform_height,"red")
 
+  //push pataforma del piso
+platforms.push({
+  x: -canvas.width,
+  y: canvas.height - 30,
+  width: canvas.width + canvas.width * 2,
+  height: platform_height,
+  color:"rgba(0, 0, 44, 0)"
+})
+platforms.push(plataf1)
 //AL Ultimo
 intro_screen()
