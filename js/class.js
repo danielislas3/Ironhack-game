@@ -22,7 +22,7 @@ class Board {
 
 class Ostrich {
   constructor() {
-    this.x = 50
+    this.x = 5
     this.y = canvas.height-100
     this.width = 50
     this.height = 50
@@ -45,9 +45,9 @@ class Ostrich {
    
    
   }
-  draw() {
+  drawRight() {
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
-    if(frames % 8 === 0){
+    if(frames % 11 === 0){
       animate++
       if(animate === 4) animate = 0
     }
@@ -65,13 +65,19 @@ class Ostrich {
       92.4, // ancho de la imagen en canvas
       50 // alto de la imagen en canvas
     );
+  
+
+  }
+  drawStaticRight(){
+        ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
+
   }
   
   moveRight() {
-    console.log("ADSasdas", this.x);
-
+    console.log("mover derecha", this.x);
     this.x += 50
   }
+
   isTouching(pipe) {
     return (this.x < pipe.x + pipe.width &&
       this.x + this.width > pipe.x &&

@@ -1,9 +1,10 @@
 let frames = 0
 let gameStarted = false
 const keys = []
-const friction = 0.75
+const friction = 0.55
 const gravity = 0.98
 const platforms = []
+
 const platform_width = 120
 const platform_height = 10
 let interval
