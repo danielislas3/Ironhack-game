@@ -51,13 +51,10 @@ function update() {
   frames++
   scenario.draw()
   drawPlatforms()
- 
-  
-  //si no hay movimiento dibuja estatico
+
+  //si no hay movimiento lateral dibuja estatico
    if(((keys[37]||keys[39]) === (undefined||false)) || ((keys[37]||keys[39])===undefined)){
     player1.drawStaticRight()
-   }else{
-     player1.drawRight()
    }
   
   //jump
@@ -71,12 +68,14 @@ function update() {
   //movimiento
   if (keys[39]) {
     if (player1.velX < player1.speed) {
+      player1.drawRight()
       player1.velX++
     }
   }
 
   if (keys[37]) {
     if (player1.velX > -player1.speed) {
+      player1.drawLeft()
       player1.velX--
     }
   }
@@ -89,7 +88,7 @@ function update() {
   player1.x += player1.velX
   player1.velX *= friction
 
-  //collition
+  //collition de plataformas
   player1.grounded = false
   platforms.map(platform => {
     const direction = collisionCheck(player1, platform)
@@ -102,11 +101,10 @@ function update() {
       player1.velY *= -1
     }
   })
-
+//checa si esta en el piso
   if (player1.grounded) {
     player1.velY = 0
   }  
-
 }
 function startGame() {
   gameStarted = true
