@@ -66,11 +66,11 @@ class Ostrich {
       // iteramos entre los estados de la imagen: 0, 16, 32
       0, // posición en y, de la imagen sobre canvas
       // iteramos entre los estados de la imagen: 0, 16, 32
-      92.4, // ancho de la fuente (imagen)
+      92.8, // ancho de la fuente (imagen)
       50, //alto de la fuente (imagen)
       this.x, // el punto x de destino en el canvas
       this.y, // el punto y de destino en el canvas
-      92.4, // ancho de la imagen en canvas
+      92.8, // ancho de la imagen en canvas
       50 // alto de la imagen en canvas
     );
 
@@ -87,16 +87,16 @@ class Ostrich {
     //ctx.clearRect(0,0,canvas.width, canvas.height)
     ctx.drawImage(
       this.caminarIz, //imagen
-      cycleLoopCoIz[animate] * 93.4, // posición en x, de la imagen
+      cycleLoopCoIz[animate] * 95.4, // posición en x, de la imagen
       // iteramos entre los estados de la imagen: 0, 16, 32
       0, // posición en y, de la imagen sobre canvas
       // iteramos entre los estados de la imagen: 0, 16, 32
       93.4, // ancho de la fuente (imagen)
-      50, //alto de la fuente (imagen)
+      54, //alto de la fuente (imagen)
       this.x, // el punto x de destino en el canvas
       this.y, // el punto y de destino en el canvas
       93.4, // ancho de la imagen en canvas
-      50 // alto de la imagen en canvas
+      54 // alto de la imagen en canvas
     );
 
 
