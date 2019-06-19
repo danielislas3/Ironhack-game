@@ -1,15 +1,87 @@
-*{
-background-color: antiquewhite
+
+body {
+
+  margin: 0;
+  /*Se coloca el overlay de la televisión como imagen de fondo del body*/
+  background-color: rgb(0, 0, 0);
+  background-image: url(http://files.catbox.moe/a3c78a.png); 
+  background-repeat: no-repeat;
+  background-position: center top;
 }
-.container{
+
+/* .container{
   width: 100vw;
   display: flex;
   align-content: center;
   justify-content: center;
-}
+} */
 #canvas{
-  
-  border: 2px solid #bada55;
+  position: absolute;
+  width: 600px;
+  height: 448px;
   /* background-color: orange */
+}
+#pantalla {
+  /*Se establece como fondo una porción de la imagen del puente, para simular el agua*/
+  
+  background: url(http://files.catbox.moe/316158.png);
+  /*Se dimensiona y se centra la pantalla*/
+  
+  width: 600px;
+  height: 448px;
+  margin: auto;
+  /*Separación para colocar la pantalla en el centro del overlay de la televisión*/
+  
+  margin-top: 46px;
+  /*Se redondean los bordes*/
+  
+  border-radius: 5px;
+  /*No se muestran los elementos en overflow. Así se ocultan los sprites que aún no han aparecido en la animación*/
+  
+  overflow: hidden;
+}
+.overlay {
+  /*La imagen de las scanlines es el fondo del div*/
+  
+  background: url(http://files.catbox.moe/cc04dd.png
+);
+  /*Mismas dimensiones que la pantalla*/
+  
+  width: 600px;
+  height: 448px;
+  /*Se coloca en la misma posición que la pantalla*/
+  
+  position: absolute ;
+  top: 0;
+  margin-top: 46px;
+  /*Se reduce la opacidad para que el efecto sea leve*/
+  
+  opacity: 0.2;
+  /*Se establece un z-index alto para que se muestren las scanlines sobre el resto de elementos*/
+  
+  z-index: 99;
+  /*Animación que mueve las scanlines indefinidamente*/
+  
+  animation: mover_scanlines 5s linear infinite;
+}
+#interfaz {
+  position: absolute;
+  width: 600px;
+  height: 440px;
+}
+/*Se agrandan todos los elementos de la interfaz*/
 
+#interfaz * {
+  /*Para conservar el estilo pixel art de las imágenes se aplica este image-rendering*/
+  
+  image-rendering: pixelated;
+  transform: scale(1.5, 1.5);
+}
+@keyframes mover_scanlines {
+  0% {
+    background-position: 0 0
+  }
+  100% {
+    background-position: 0 -448px
+  }
 }

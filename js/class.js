@@ -6,14 +6,14 @@ class Board {
     this.height = canvas.height
     this.img = new Image()
     this.img.src = images.niveles.bgTarde
-    this.img.onload = () => {
-      this.draw()
-    }
+    // this.img.onload = () => {
+    //   this.draw()
+    // }
    this.audio = new Audio()
    this.audio.src = 'http://23.237.126.42/ost/super-mario-bros/khbnvkqp/01%20-%20Super%20Mario%20Bros.mp3'
   }
   draw() {
-    if (this.x < -canvas.width) this.x = 0
+    //if (this.x < -canvas.width) this.x = 0
     //  this.x-- // para que el background se mueva a la izquierda
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     ctx.drawImage(this.img, this.x + canvas.width, this.y, this.width, this.height)
@@ -22,8 +22,8 @@ class Board {
 
 class Ostrich {
   constructor() {
-    this.x = 5
-    this.y = 5
+    this.x = 50
+    this.y = canvas.height-100
     this.width = 50
     this.height = 50
     this.speed= 5
@@ -36,9 +36,9 @@ class Ostrich {
     //imagen
     this.standDer = new Image()
     this.standDer.src = images.ostrichs.standDer
-    this.standDer.onload = () => {
-      this.draw()
-    }
+    // this.standDer.onload = () => {
+    //   this.draw()
+    // }
     this.caminarDer= new Image()
     this.caminarDer.src = images.ostrichs.caminandoDer
     
@@ -61,7 +61,7 @@ class Ostrich {
       92.4, // ancho de la fuente (imagen)
       50, //alto de la fuente (imagen)
      this.x, // el punto x de destino en el canvas
-      90, // el punto y de destino en el canvas
+      this.y, // el punto y de destino en el canvas
       92.4, // ancho de la imagen en canvas
       50 // alto de la imagen en canvas
     );
