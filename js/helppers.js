@@ -5,6 +5,8 @@ function recargar(){
 //para movimiento
 document.body.addEventListener('keyup', e => {
   keys[e.keyCode] = false
+  auxStatic = true
+  
 })
 
 document.body.addEventListener('keydown', e => {

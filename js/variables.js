@@ -5,6 +5,8 @@ const friction = 0.55
 const gravity = 0.98
 const platforms = []
 
+let auxStatic = true
+
 const platform_width = 120
 const platform_height = 10
 let interval
@@ -24,7 +26,8 @@ const images={
      caminandoIz:"./img/thumbnail_CaminandoIz.png",
      brincoDer:"./img/thumbnail_brinco.png",
      brincoIz:"./img/thumbnail_brincoIz.png",
-     standDer:"./img/standD.png"
+     standDer:"./img/standD.png",
+     standIzq:"./img/standIz.png"
 
    }
   }

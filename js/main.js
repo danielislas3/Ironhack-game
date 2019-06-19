@@ -53,10 +53,18 @@ function update() {
   drawPlatforms()
 
   //si no hay movimiento lateral dibuja estatico
-   if(((keys[37]||keys[39]) === (undefined||false)) || ((keys[37]||keys[39])===undefined)){
-    player1.drawStaticRight()
-   }
+ // if(((keys[39]) === (undefined||false)) || ((keys[37]||keys[39])===undefined)){
+  if (auxStatic) {
+    if (!keys[39]) {
+      player1.drawStatic()
+    }
+    if (!keys[37]) {
+      player1.drawStatic()
+    }
+  }
   
+   
+
   //jump
   if (keys[38] || keys[32]) {
     if (!player1.jumping) {
@@ -68,7 +76,7 @@ function update() {
   //movimiento
   if (keys[39]) {
     if (player1.velX < player1.speed) {
-      player1.drawRight()
+      player1.drawRight() 
       player1.velX++
     }
   }

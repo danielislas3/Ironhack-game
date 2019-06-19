@@ -31,23 +31,29 @@ class Ostrich {
     this.velY = 0
     //fisica
     this.jumping = false,
-      this.jumpStrength = 7,
-      this.grounded = false,
-      //imagen
-      this.standDer = new Image()
+    this.jumpStrength = 7,
+    this.grounded = false,
+    //imagen para stand
+    this.standDer = new Image()
+    this.standIz = new Image()
     this.standDer.src = images.ostrichs.standDer
+    this.standIz.src = images.ostrichs.standIzq
     // this.standDer.onload = () => {
     //   this.draw()
     // }
+    //sprites animados 
     this.caminarDer = new Image()
+    this.standImg= new Image()
     this.caminarIz = new Image()
     this.caminarIz.src = images.ostrichs.caminandoIz
     this.caminarDer.src = images.ostrichs.caminandoDer
 
-
+    this.direction = true 
 
   }
   drawRight() {
+    auxStatic = false
+    this.direction = true
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
     if (frames % 11 === 0) {
       animate++
@@ -71,6 +77,8 @@ class Ostrich {
 
   }
   drawLeft() {
+    auxStatic = false
+    this.direction = false 
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
     if (frames % 11 === 0) {
       animate++
@@ -96,7 +104,16 @@ class Ostrich {
   drawStaticRight() {
     ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height)
   }
-
+  drawStaticLeft() {
+    ctx.drawImage(this.standIz, this.x, this.y, this.width, this.height)
+  }
+  drawStatic() {
+    if (this.direction) {
+      ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height)  
+    } else {
+      ctx.drawImage(this.standIz, this.x, this.y, this.width, this.height)
+    }
+  }
   // moveRight() {
   //   console.log("mover derecha", this.x);
   //   this.x += 50
