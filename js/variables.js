@@ -13,7 +13,7 @@ let interval
 let animate = 0
  let cycleLoopCoDer= [0,1,2,4]
  let cycleLoopCoIz= [4,3,2,1,0]
-
+ let cycleLoopUpDer=[0,2,3,4,2]
 const images={
     niveles:{
       bgAmanecer: "./img/tarde.png",
@@ -24,8 +24,10 @@ const images={
    ostrichs:{
      caminandoDer:"./img/thumbnail_Caminando.png",
      caminandoIz:"./img/thumbnail_CaminandoIz.png",
-     brincoDer:"./img/thumbnail_brinco.png",
-     brincoIz:"./img/thumbnail_brincoIz.png",
+     //brinco
+     saltoDer:"./img/thumbnail_saltoDer.png",
+     saltoIzq:"./img/thumbnail_saltoIzq.png",
+     //stand
      standDer:"./img/standD.png",
      standIzq:"./img/standIz.png"
 

@@ -43,10 +43,19 @@ class Ostrich {
     // }
     //sprites animados 
     this.caminarDer = new Image()
-    this.standImg= new Image()
     this.caminarIz = new Image()
-    this.caminarIz.src = images.ostrichs.caminandoIz
+
+    this.standImg= new Image()
+
+    this.brincoI = new Image ()
+    this.brincoD = new Image ()
+
     this.caminarDer.src = images.ostrichs.caminandoDer
+    this.caminarIz.src = images.ostrichs.caminandoIz
+    //sprites salto
+  
+    this.brincoI.src=images.ostrichs.saltoIzq
+    this.brincoD.src=images.ostrichs.saltoDer
 
     this.direction = true 
 
@@ -101,6 +110,33 @@ class Ostrich {
 
 
   }
+  drawUpDer() {
+    auxStatic = false
+    this.direction = true
+   // this.direction = true
+    //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
+    if(frames % 20 === 0){
+      animate++
+      if(animate === 4) animate = 0
+    }
+    //ctx.clearRect(0,0,canvas.width, canvas.height)
+
+    ctx.drawImage(
+      this.brincoD, //imagen
+      cycleLoopUpDer[animate] * 77.8, // posición en x, de la imagen
+      // iteramos entre los estados de la imagen: 0, 16, 32
+      0, // posición en y, de la imagen sobre canvas
+      // iteramos entre los estados de la imagen: 0, 16, 32
+      77.8, // ancho de la fuente (imagen)
+      104, //alto de la fuente (imagen)
+      this.x, // el punto x de destino en el canvas
+      this.y, // el punto y de destino en el canvas
+      77.8, // ancho de la imagen en canvas
+      104 // alto de la imagen en canvas
+    );
+
+
+  }
   drawStaticRight() {
     ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height)
   }
@@ -118,6 +154,7 @@ class Ostrich {
   //   console.log("mover derecha", this.x);
   //   this.x += 50
   // }
+
 
   isTouching(plataform) {
     return (this.x < pipe.x + pipe.width &&

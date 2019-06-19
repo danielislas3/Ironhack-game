@@ -62,11 +62,11 @@ function update() {
       player1.drawStatic()
     }
   }
-  
-   
 
   //jump
   if (keys[38] || keys[32]) {
+//    player1.drawUpDer()// para animacion de brinco
+  // console.log( player1.drawUpDer()) 
     if (!player1.jumping) {
       player1.velY = -player1.jumpStrength * 2
       player1.jumping = true
@@ -76,7 +76,7 @@ function update() {
   //movimiento
   if (keys[39]) {
     if (player1.velX < player1.speed) {
-      player1.drawRight() 
+      player1.drawRight()
       player1.velX++
     }
   }
@@ -123,7 +123,7 @@ function startGame() {
 
 const scenario = new Board()
 const player1= new Ostrich()
-const plataf1= new Plataforms(400,400,platform_width,platform_height,"red")
+const plataf1= new Plataforms(400,450,platform_width,platform_height,"red")
 
   //push pataforma del piso
 platforms.push({

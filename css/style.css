@@ -3,7 +3,7 @@ body {
   margin: 0;
   /*Se coloca el overlay de la televisión como imagen de fondo del body*/
   background-color: rgb(0, 0, 0);
-  /* background-image: url("../img/pantalla.png"); */
+  /* background-image: url("../img/pantalla.png");  */
   background-repeat: no-repeat;
   background-position: center top;
 }
