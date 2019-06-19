@@ -3,6 +3,7 @@ function recargar(){
   return document.location.reload()
 }
 addEventListener('keydown', (e) => {
+    //para movimiento
   keys[e.keyCode] = true
   if (e.keyCode === 13) {
     startGame()
