@@ -41,12 +41,15 @@ document.body.addEventListener('keydown', e => {
 function checkCollitions() {
   enemigos.map((e) => {
     if (player1.isTouching(e)){ 
+      vidas--
+      if(vidas===0)
       gameOver()
     }})
 
   huevosArr.map((h) => {
     if (player1.isTouching(h)){ 
-      puntos++
+      scenario.score++
+      puntos=scenario.score
       huevosArr.pop()
     }
 

@@ -1,5 +1,6 @@
 class Board {
   constructor() {
+    this.score=0
     this.x = 0
     this.y = 0
     this.width = canvas.width
@@ -17,6 +18,14 @@ class Board {
     //  this.x-- // para que el background se mueva a la izquierda
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     ctx.drawImage(this.img, this.x + canvas.width, this.y, this.width, this.height)
+    ctx.font = '20px Arial'
+    ctx.fillStyle="white"
+    ctx.fillText(`Eggs: ${this.score}`, canvas.width-100,50)
+
+    vidas == 3 ?  ctx.fillText("❤️❤️❤️", canvas.width-100,80) : 
+    vidas == 2 ?  ctx.fillText("❤️❤️", canvas.width-100,80) :
+    vidas == 1 ?  ctx.fillText("❤️", canvas.width-100,80) : tx.fillText("😭", canvas.width-100,80)
+    
   }
 }
 
@@ -212,6 +221,7 @@ class Tree {
     ctx.drawImage(this.imgArbol, this.x, this.y, this.width, this.height)
 
    }
+
       
     //this.move()
   }
