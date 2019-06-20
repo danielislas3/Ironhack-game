@@ -42,7 +42,9 @@ function update() {
   drawPlatforma()
   drawPlatforms()
   drawEnemi()
+  drawHuevos()
   checkCollitions()
+ 
 
 
 
@@ -133,6 +135,7 @@ const player1 = new Ostrich()
 const snake1= new Enemigos(100,400)
 //const plataf1 = new Plataforms(300,480,platform_width,platform_height,"red")
 const arbol1= new Tree(70,430,false,280)
+const huevolvl1= new Huevos(50,10)
 
 //push pataforma del piso
 platforma.push({
@@ -144,6 +147,8 @@ platforma.push({
 })
 platforms.push(arbol1)
 enemigos.push(snake1)
+huevosArr.push(huevolvl1)
+
 
 
 //AL Ultimo

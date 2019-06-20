@@ -3,8 +3,11 @@ function recargar(){
   return document.location.reload()
 }
 function intro_screen() {
-  ctx.font = '20px Arial'
-  ctx.fillText('Press Enter To Start',( canvas.width/2)-100, (canvas.height / 2) )
+  ctx.font = "50px 'Ubuntu'"
+  ctx.fillStyle="white"
+  ctx.fillText('Press Enter To Start 💩',130,280 )
+  
+ 
 }
 function startGame() {
   gameStarted = true
@@ -39,8 +42,16 @@ function checkCollitions() {
   enemigos.map((e) => {
     if (player1.isTouching(e)){ 
       gameOver()
+    }})
+
+  huevosArr.map((h) => {
+    if (player1.isTouching(h)){ 
+      puntos++
+      huevosArr.pop()
     }
+
   })
+  
 }
 
 function drawPlatforma()  {
@@ -62,13 +73,18 @@ function drawEnemi() {
     ene.draw()
   })
 }
+function drawHuevos() {
+  huevosArr.forEach(h => {
+    h.draw()
+  })
+}
 
 function gameOver() {
   
   clearInterval(interval)
-  ctx.font = '20px Arial'
-  ctx.fillStyle="blue"
-  ctx.fillText("saddfasf", 50,50)
+  ctx.font = '60px Arial'
+  ctx.fillStyle="white"
+  ctx.fillText("😭 - GAME OVER - 😭", 120,280)
   interval=null
   scenario.audio.pause()
   

@@ -197,6 +197,7 @@ class Tree {
    if(this.type){
     this.height=40
    }
+   if(this.width<100) this.height=30
 
   }
   move() {
@@ -215,9 +216,10 @@ class Tree {
     //this.move()
   }
 }
+
 class Enemigos {
 
-  constructor( x,y) { 
+  constructor( x,y,an=145) { 
     //type true= rama, false= arbol
     this.oPosition=x
     this.x = x
@@ -227,13 +229,14 @@ class Enemigos {
     this.snake1 = new Image()
     this.snake1.src = images.enemigos.snake
     this.direction=true
+    this.anchoP=an
   }
   move() {
     if(this.direction){
-      this.x+=1.5
-      if(this.x>this.oPosition+145)this.direction=false
+      this.x+=1.3
+      if(this.x>this.oPosition+this.anchoP)this.direction=false
     }else{
-      this.x-=1.5
+      this.x-=1.3
       if(this.x<this.oPosition)this.direction=true
     }
   }
@@ -243,3 +246,22 @@ class Enemigos {
       
     //this.move()
   }
+class Huevos {
+
+    constructor(x,y) { 
+      //type true= rama, false= arbol
+      this.oPosition=x
+      this.x = x
+      this.y = y
+      this.width = 45
+      this.height = 45
+      this.huevo1 = new Image()
+      this.huevo1.src = images.huevo
+    }
+  
+    draw() {
+      ctx.drawImage(this.huevo1, this.x, this.y, this.width, this.height)
+     }
+        
+      //this.move()
+ }

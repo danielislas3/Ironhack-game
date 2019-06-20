@@ -6,6 +6,9 @@ const gravity = 0.68
 const platforms = []
 const platforma = []
 const enemigos = []
+const huevosArr = []
+const salida = []
+let puntos=0
 
 let auxStatic = true
 
@@ -36,11 +39,13 @@ const images={
    },
    platforms:{
     sabanaTree:"./img/sabana.png",
-    rama:"./img/rama.png"
+    rama:"./img/rama.png",
+    ramaChica:"./img/rama.png"
    },
    enemigos:{
     snake:"./img/snake.png"
-   }
+   },
+   huevo:"./img/huevo.png"
   }
 
 
