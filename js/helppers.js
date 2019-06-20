@@ -42,7 +42,10 @@ function checkCollitions() {
   enemigos.map((e) => {
     if (player1.isTouching(e)){ 
       vidas--
-      if(vidas===0)
+      player1.x=5
+      player1.y=canvas.height - 100
+
+      if(vidas==0)
       gameOver()
     }})
 
