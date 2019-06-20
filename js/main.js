@@ -92,7 +92,7 @@ function update() {
   player1.x += player1.velX
   player1.velX *= friction
 
-  //collition de plataformas
+  //collition de plataforma base
   player1.grounded = false
   platforma.map(platform => {
     const direction = collisionCheck(player1, platform)
@@ -105,6 +105,19 @@ function update() {
       player1.velY *= -1
     }
   })
+  //colicionde plataforma con arboles
+  platforms.map(platform => {
+    const direction = collisionCheck(player1, platform)
+    if (direction == 'left' || direction == 'right') {
+      player1.velX = 0
+    } else if (direction == 'bottom') {
+      player1.jumping = false
+      player1.grounded = true
+    } else if (direction == 'top') {
+      player1.velY *= -1
+    }
+  })
+
 //checa si esta en el piso
   if (player1.grounded) {
     player1.velY = 0
@@ -116,7 +129,7 @@ const scenario = new Board()
 const player1 = new Ostrich()
 const snake1= new Enemigos(100,400,50,50)
 //const plataf1 = new Plataforms(300,480,platform_width,platform_height,"red")
-const arbol1= new Tree(100,400,70,200,true)
+const arbol1= new Tree(100,430,40,200,true)
 
 //push pataforma del piso
 platforma.push({
