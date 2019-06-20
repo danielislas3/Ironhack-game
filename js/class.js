@@ -21,7 +21,7 @@ class Board {
     ctx.font = '20px Arial'
     ctx.fillStyle="white"
     ctx.fillText(`🍳🥚: ${this.score}`, canvas.width-100,50)
-    
+    //
     vidas == 3 ?  ctx.fillText("❤️❤️❤️", canvas.width-100,80) : 
     vidas == 2 ?  ctx.fillText("❤️❤️", canvas.width-100,80) :
     vidas == 1 ?  ctx.fillText("❤️", canvas.width-100,80) : tx.fillText("😭", canvas.width-100,80)
