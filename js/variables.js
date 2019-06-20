@@ -4,6 +4,8 @@ const keys = []
 const friction = 0.55
 const gravity = 0.98
 const platforms = []
+const platforma = []
+const enemigos = []
 
 let auxStatic = true
 
@@ -16,7 +18,7 @@ let animate = 0
  let cycleLoopUpDer=[0,2,3,4,2]
 const images={
     niveles:{
-      bgAmanecer: "./img/tarde.png",
+      bgAmanecer: "./img/amanecer.png",
       bgMedioDia: "./img/medio-dia-png.jpg",
       bgTarde: "./img/tarde.png",
       bgNoche: "./img/noche.png",
@@ -31,6 +33,13 @@ const images={
      standDer:"./img/standD.png",
      standIzq:"./img/standIz.png"
 
+   },
+   platforms:{
+    sabanaTree:"./img/sabana.png",
+    rama:"./img/rama.png"
+   },
+   enemigos:{
+    snake:"./img/snake.png"
    }
   }
 

@@ -5,7 +5,7 @@ class Board {
     this.width = canvas.width
     this.height = canvas.height
     this.img = new Image()
-    this.img.src = images.niveles.bgTarde
+    this.img.src = images.niveles.bgAmanecer
     // this.img.onload = () => {
     //   this.draw()
     // }
@@ -24,17 +24,17 @@ class Ostrich {
   constructor() {
     this.x = 5
     this.y = canvas.height - 100
-    this.width = 50
+    this.width = 60
     this.height = 50
     this.speed = 5
     this.velX = 0
     this.velY = 0
     //fisica
     this.jumping = false,
-    this.jumpStrength = 7,
-    this.grounded = false,
-    //imagen para stand
-    this.standDer = new Image()
+      this.jumpStrength = 7,
+      this.grounded = false,
+      //imagen para stand
+      this.standDer = new Image()
     this.standIz = new Image()
     this.standDer.src = images.ostrichs.standDer
     this.standIz.src = images.ostrichs.standIzq
@@ -45,34 +45,33 @@ class Ostrich {
     this.caminarDer = new Image()
     this.caminarIz = new Image()
 
-    this.standImg= new Image()
+    this.standImg = new Image()
 
-    this.brincoI = new Image ()
-    this.brincoD = new Image ()
+    this.brincoI = new Image()
+    this.brincoD = new Image()
 
     this.caminarDer.src = images.ostrichs.caminandoDer
     this.caminarIz.src = images.ostrichs.caminandoIz
     //sprites salto
-  
-    this.brincoI.src=images.ostrichs.saltoIzq
-    this.brincoD.src=images.ostrichs.saltoDer
 
-    this.direction = true 
+    this.brincoI.src = images.ostrichs.saltoIzq
+    this.brincoD.src = images.ostrichs.saltoDer
+
+    this.direction = true
 
   }
   drawRight() {
     auxStatic = false
     this.direction = true
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
-    if (frames % 11 === 0) {
+    if (frames % 10 === 0) {
       animate++
       if (animate === 4) animate = 0
     }
     //ctx.clearRect(0,0,canvas.width, canvas.height)
     ctx.drawImage(
       this.caminarDer, //imagen
-      cycleLoopCoDer[animate] * 92.8, // posición en x, de la imagen
-      // iteramos entre los estados de la imagen: 0, 16, 32
+      cycleLoopCoDer[animate] * 93.8, // posición en x, de la imagen
       0, // posición en y, de la imagen sobre canvas
       // iteramos entre los estados de la imagen: 0, 16, 32
       92.8, // ancho de la fuente (imagen)
@@ -82,12 +81,10 @@ class Ostrich {
       92.8, // ancho de la imagen en canvas
       50 // alto de la imagen en canvas
     );
-
-
   }
   drawLeft() {
     auxStatic = false
-    this.direction = false 
+    this.direction = false
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
     if (frames % 11 === 0) {
       animate++
@@ -113,11 +110,11 @@ class Ostrich {
   drawUpDer() {
     auxStatic = false
     this.direction = true
-   // this.direction = true
+    // this.direction = true
     //ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
-    if(frames % 20 === 0){
+    if (frames % 20 === 0) {
       animate++
-      if(animate === 4) animate = 0
+      if (animate === 4) animate = 0
     }
     //ctx.clearRect(0,0,canvas.width, canvas.height)
 
@@ -145,7 +142,7 @@ class Ostrich {
   }
   drawStatic() {
     if (this.direction) {
-      ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height)  
+      ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height)
     } else {
       ctx.drawImage(this.standIz, this.x, this.y, this.width, this.height)
     }
@@ -156,25 +153,80 @@ class Ostrich {
   // }
 
 
-  isTouching(plataform) {
-    return (this.x < pipe.x + pipe.width &&
-      this.x + this.width > pipe.x &&
-      this.y > pipe.y + pipe.height &&
-      this.y + pipe.height > pipe.y)
+isTouching(enemigos) {
+    return (this.x < enemigos.x + enemigos.width &&
+      this.x + this.width > enemigos.x &&
+      this.y < enemigos.y + enemigos.height &&
+      this.y + this.height > enemigos.y)
   }
 }
 
-class Plataforms{
-  constructor(x,y,platformWidth,platformHeight,color){
-    this.x=x,
-    this.y=y,
-    this.width= platformWidth,
-    this.height= platformHeight
-    this.color=color
+class Plataforms {
+  constructor(x, y, platformWidth, platformHeight, color) {
+    this.x = x,
+    this.y = y,
+    this.width = platformWidth,
+    this.height = platformHeight
+    this.color = color
+    this.plataformImg= new Image()
+    this.plataformImg.src=images.platforms.sabanaTree
   }
-  draw(){
-    ctx.fillStyle = this.color
-    ctx.fillRect(this.x, this.y, this.width, this.height)
+  draw() {
+
+    //ctx.fillStyle = this.color
+  ctx.drawImage(this.standDer, this.x, this.y, this.width, this.height )
+
+   // ctx.fillRect(this.x, this.y, this.width, this.height)
   }
-  
+
 }
+class Tree {
+
+  constructor( x,y, height,width,type) { 
+    //type true= rama, false= arbol
+    this.x = x
+    this.y = y
+    this.width = width
+    this.height = height
+    this.imgArbol = new Image()
+    this.imgRama = new Image()
+    this.imgArbol.src = images.platforms.sabanaTree
+    this.imgRama.src = images.platforms.rama
+   this.type = type
+
+  }
+  move() {
+    this.x--
+  }
+  draw() {
+   if(this.type){
+    ctx.drawImage(this.imgRama, this.x, this.y, this.width, this.height)
+   }else{
+    ctx.drawImage(this.imgArbol, this.x, this.y, this.width, this.height)
+
+   }
+      
+    //this.move()
+  }
+}
+class Enemigos {
+
+  constructor( x,y, height,width) { 
+    //type true= rama, false= arbol
+    this.x = x
+    this.y = y
+    this.width = width
+    this.height = height
+    this.snake1 = new Image()
+    this.snake1.src = images.enemigos.snake
+  }
+  move() {
+    this.x--
+    
+  }
+  draw() {
+    ctx.drawImage(this.snake1, this.x, this.y, this.width, this.height)
+   }
+      
+    //this.move()
+  }

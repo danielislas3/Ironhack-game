@@ -33,24 +33,20 @@ function collisionCheck(char, plat) {
   }
   return collisionDirection
 }
-function drawPlatforms()  {
-  ctx.fillStyle = platforms[0].color
-  platforms.map(platform =>{
-    ctx.fillStyle=platform.color 
-   return ctx.fillRect(platform.x, platform.y, platform.width, platform.height)
-  }
-  )
-}
-function intro_screen() {
-  ctx.font = '20px Arial'
-  ctx.fillText('Press Enter To Start',( canvas.width/2)-100, (canvas.height / 2) )
-}
+
+
 
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   frames++
   scenario.draw()
+  drawPlatforma()
   drawPlatforms()
+  
+  drawEnemi()
+  checkCollitions()
+
+
 
   //si no hay movimiento lateral dibuja estatico
  // if(((keys[39]) === (undefined||false)) || ((keys[37]||keys[39])===undefined)){
@@ -98,7 +94,7 @@ function update() {
 
   //collition de plataformas
   player1.grounded = false
-  platforms.map(platform => {
+  platforma.map(platform => {
     const direction = collisionCheck(player1, platform)
     if (direction == 'left' || direction == 'right') {
       player1.velX = 0
@@ -114,25 +110,26 @@ function update() {
     player1.velY = 0
   }  
 }
-function startGame() {
-  gameStarted = true
-  if (interval) return
-  scenario.audio.play()
-  interval = setInterval(update, 1000 / 60)
-}
+
 
 const scenario = new Board()
-const player1= new Ostrich()
-const plataf1= new Plataforms(400,450,platform_width,platform_height,"red")
+const player1 = new Ostrich()
+const snake1= new Enemigos(100,400,50,50)
+//const plataf1 = new Plataforms(300,480,platform_width,platform_height,"red")
+const arbol1= new Tree(100,400,70,200,true)
 
-  //push pataforma del piso
-platforms.push({
+//push pataforma del piso
+platforma.push({
   x: -canvas.width,
   y: canvas.height - 30,
   width: canvas.width + canvas.width * 2,
   height: platform_height,
   color:"rgba(0, 0, 44, 0)"
 })
-platforms.push(plataf1)
+platforms.push(arbol1)
+enemigos.push(snake1)
+
+
 //AL Ultimo
 intro_screen()
+
