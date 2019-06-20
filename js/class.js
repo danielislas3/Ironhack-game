@@ -11,7 +11,7 @@ class Board {
     //   this.draw()
     // }
     this.audio = new Audio()
-    this.audio.src = 'http://23.237.126.42/ost/super-mario-bros/khbnvkqp/01%20-%20Super%20Mario%20Bros.mp3'
+    this.audio.src = 'http://23.237.126.42/ost/sonic-lost-world/iuyyhqnw/01%20Wonder%20World%20-%20Title%20Theme.mp3'
   }
   draw() {
     //if (this.x < -canvas.width) this.x = 0
