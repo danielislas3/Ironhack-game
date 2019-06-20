@@ -7,6 +7,7 @@ class Board {
     this.height = canvas.height
     this.img = new Image()
     this.img.src = images.niveles.bgAmanecer
+   
     // this.img.onload = () => {
     //   this.draw()
     // }
@@ -16,12 +17,23 @@ class Board {
   draw() {
     //if (this.x < -canvas.width) this.x = 0
     //  this.x-- // para que el background se mueva a la izquierda
+    switch (this.score){
+      case 1:
+      this.img.src= images.niveles.bgMedioDia
+      break;
+      case 2:
+      this.img.src= images.niveles.bgTarde
+      break;
+      case 3:
+          this.img.src= images.niveles.bgNoche
+       break;
+    }
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    
     ctx.drawImage(this.img, this.x + canvas.width, this.y, this.width, this.height)
-    ctx.font = '20px Arial'
+    ctx.font = '20px sans-serif'
     ctx.fillStyle="white"
     ctx.fillText(`🍳🥚: ${this.score}`, canvas.width-100,50)
-    //
     vidas == 3 ?  ctx.fillText("❤️❤️❤️", canvas.width-100,80) : 
     vidas == 2 ?  ctx.fillText("❤️❤️", canvas.width-100,80) :
     vidas == 1 ?  ctx.fillText("❤️", canvas.width-100,80) : tx.fillText("😭", canvas.width-100,80)

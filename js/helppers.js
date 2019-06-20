@@ -51,9 +51,14 @@ function checkCollitions() {
 
   huevosArr.map((h) => {
     if (player1.isTouching(h)){ 
+      //scenario.img.src=nivelesImagen[scenario.score]
       scenario.score++
-      puntos=scenario.score
+      //cambio de nivel
       huevosArr.pop()
+      puntos=scenario.score
+      player1.x=canvas.width-100
+      player1.y=canvas.height - 100
+      huevosArr.push(huevolvl1)
     }
 
   })

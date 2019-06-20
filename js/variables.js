@@ -19,6 +19,7 @@ let animate = 0
  let cycleLoopCoDer= [0,1,2,4]
  let cycleLoopCoIz= [4,3,2,1,0]
  let cycleLoopUpDer=[0,2,3,4,2]
+
 const images={
     niveles:{
       bgAmanecer: "./img/amanecer.png",
@@ -47,5 +48,6 @@ const images={
    },
    huevo:"./img/huevo.png"
   }
+  let nivelesImagen=[images.niveles.bgAmanecer,images.niveles.bgMedioDia,images.niveles.bgTarde,images.niveles.bgNoche]
 
 
