@@ -182,12 +182,12 @@ class Plataforms {
 }
 class Tree {
 
-  constructor( x,y,type) { 
+  constructor( x,y,type,width=200) { 
     //type true= rama, false= arbol
     
     this.x = x
     this.y = y
-    this.width = 200
+    this.width = width
     this.height = 40
     this.imgArbol = new Image()
     this.imgRama = new Image()
@@ -207,6 +207,7 @@ class Tree {
     ctx.drawImage(this.imgRama, this.x, this.y, this.width, this.height)
    }else{
     this.height=130
+    this.width=230
     ctx.drawImage(this.imgArbol, this.x, this.y, this.width, this.height)
 
    }
@@ -216,23 +217,23 @@ class Tree {
 }
 class Enemigos {
 
-  constructor( x,y, height,width) { 
+  constructor( x,y) { 
     //type true= rama, false= arbol
     this.oPosition=x
     this.x = x
     this.y = y
-    this.width = width
-    this.height = height
+    this.width = 45
+    this.height = 45
     this.snake1 = new Image()
     this.snake1.src = images.enemigos.snake
     this.direction=true
   }
   move() {
     if(this.direction){
-      this.x++
+      this.x+=1.5
       if(this.x>this.oPosition+145)this.direction=false
     }else{
-      this.x--
+      this.x-=1.5
       if(this.x<this.oPosition)this.direction=true
     }
   }

@@ -130,9 +130,9 @@ function update() {
 
 const scenario = new Board()
 const player1 = new Ostrich()
-const snake1= new Enemigos(100,400,50,50)
+const snake1= new Enemigos(100,400)
 //const plataf1 = new Plataforms(300,480,platform_width,platform_height,"red")
-const arbol1= new Tree(100,430,true)
+const arbol1= new Tree(70,430,false,280)
 
 //push pataforma del piso
 platforma.push({
