@@ -153,7 +153,7 @@ class Ostrich {
   // }
 
 
-isTouching(enemigos) {
+  isTouching(enemigos) {
     return (this.x < enemigos.x + enemigos.width &&
       this.x + this.width > enemigos.x &&
       this.y < enemigos.y + enemigos.height &&
@@ -182,17 +182,21 @@ class Plataforms {
 }
 class Tree {
 
-  constructor( x,y, height,width,type) { 
+  constructor( x,y,type) { 
     //type true= rama, false= arbol
+    
     this.x = x
     this.y = y
-    this.width = width
-    this.height = height
+    this.width = 200
+    this.height = 40
     this.imgArbol = new Image()
     this.imgRama = new Image()
     this.imgArbol.src = images.platforms.sabanaTree
     this.imgRama.src = images.platforms.rama
    this.type = type
+   if(this.type){
+    this.height=40
+   }
 
   }
   move() {
@@ -202,6 +206,7 @@ class Tree {
    if(this.type){
     ctx.drawImage(this.imgRama, this.x, this.y, this.width, this.height)
    }else{
+    this.height=130
     ctx.drawImage(this.imgArbol, this.x, this.y, this.width, this.height)
 
    }
@@ -213,16 +218,23 @@ class Enemigos {
 
   constructor( x,y, height,width) { 
     //type true= rama, false= arbol
+    this.oPosition=x
     this.x = x
     this.y = y
     this.width = width
     this.height = height
     this.snake1 = new Image()
     this.snake1.src = images.enemigos.snake
+    this.direction=true
   }
   move() {
-    this.x--
-    
+    if(this.direction){
+      this.x++
+      if(this.x>this.oPosition+145)this.direction=false
+    }else{
+      this.x--
+      if(this.x<this.oPosition)this.direction=true
+    }
   }
   draw() {
     ctx.drawImage(this.snake1, this.x, this.y, this.width, this.height)

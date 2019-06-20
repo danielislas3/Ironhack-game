@@ -1,5 +1,6 @@
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
+
 //funcion de colision para la gravedad
 function collisionCheck(char, plat) {
   const vectorX = char.x + char.width / 2 - (plat.x + plat.width / 2)
@@ -34,15 +35,12 @@ function collisionCheck(char, plat) {
   return collisionDirection
 }
 
-
-
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   frames++
   scenario.draw()
   drawPlatforma()
   drawPlatforms()
-  
   drawEnemi()
   checkCollitions()
 
@@ -122,6 +120,11 @@ function update() {
   if (player1.grounded) {
     player1.velY = 0
   }  
+  //if(keys[79]){
+    enemigos.forEach(e=>{
+      e.move()
+    })
+  
 }
 
 
@@ -129,7 +132,7 @@ const scenario = new Board()
 const player1 = new Ostrich()
 const snake1= new Enemigos(100,400,50,50)
 //const plataf1 = new Plataforms(300,480,platform_width,platform_height,"red")
-const arbol1= new Tree(100,430,40,200,true)
+const arbol1= new Tree(100,430,true)
 
 //push pataforma del piso
 platforma.push({
