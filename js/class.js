@@ -20,7 +20,7 @@ class Board {
     ctx.drawImage(this.img, this.x + canvas.width, this.y, this.width, this.height)
     ctx.font = '20px Arial'
     ctx.fillStyle="white"
-    ctx.fillText(`: ${this.score}`, canvas.width-100,50)
+    ctx.fillText(`🍳🥚: ${this.score}`, canvas.width-100,50)
     
     vidas == 3 ?  ctx.fillText("❤️❤️❤️", canvas.width-100,80) : 
     vidas == 2 ?  ctx.fillText("❤️❤️", canvas.width-100,80) :
