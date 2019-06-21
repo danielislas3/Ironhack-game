@@ -11,6 +11,7 @@ const salida = []
 let puntos=0
 let vidas=2
 let auxStatic = true
+let player = 1
 
 const platform_width = 120
 const platform_height = 10
