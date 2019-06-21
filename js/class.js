@@ -21,17 +21,33 @@ class Board {
       case 1:
       this.img.src= images.niveles.bgMedioDia
       huevolvl1.x=630
-      
             arbol1.x=250
             arbol1.y=400
             //arbol 2 null
             arbol2.x=1000
+
+            //rama2.x=10
             //vivora 1
+            rama4.y=80
+            rama4.width=330
+            rama4.x=230
+
+            rama5.y=180
+            rama5.x=50
+            rama5.width=120
+
+            rama6.y=400
+            rama6.x=80
+
+   
        
         
       break;
       case 2:
       this.img.src= images.niveles.bgTarde
+      huevolvl1.x=630
+      huevolvl1.y=480
+      
       break;
       case 3:
           this.img.src= images.niveles.bgNoche
@@ -273,7 +289,19 @@ class Enemigos {
     }
   }
   draw() {
+   
+    if(scenario.score==1){ 
+      snake1.y=480
+    //    snake1.x=600
+       snake2.y=50
+       snake3.x=650
+       
+       snake3.width=60
+       snake3.height=60
+    }
     ctx.drawImage(this.snake, this.x, this.y, this.width, this.height)
+
+
    }
       
     //this.move()

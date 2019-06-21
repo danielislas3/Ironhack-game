@@ -15,9 +15,12 @@ huevosArr.push(huevolvl1)
 const snake1 = new Enemigos(100, 370)
 enemigos.push(snake1)
 
-snake2= new Enemigos(250,480,310)
+snake2= new Enemigos(210,480,310)
 enemigos.push(snake2)
-
+///extra
+let snake3= new Enemigos (4000,175)
+enemigos.push(snake3)
+//
 const arbol2 = new Tree(500, 400, false, 400)
 platforms.push(arbol2)
 
@@ -33,6 +36,7 @@ platforms.push(rama4)
 const rama5 = new Tree(520, 100, true, 100)
 platforms.push(rama5)
 
-const rama6 = new Tree(380, 20, true, 70)
+const rama6 = new Tree(380, 30, true, 70)
 platforms.push(rama6)
+
 
