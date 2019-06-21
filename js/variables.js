@@ -9,7 +9,7 @@ const enemigos = []
 const huevosArr = []
 const salida = []
 let puntos=0
-let vidas=3
+let vidas=2
 let auxStatic = true
 
 const platform_width = 120

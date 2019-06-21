@@ -31,9 +31,9 @@ document.body.addEventListener('keydown', e => {
   } else if (e.keyCode === 80) {
     clearInterval(interval)
     interval = false
-  }// else if (e.keyCode === 39) {
-  //   player1.moveRight()
-  // } 
+  } else if (e.keyCode === 85) {
+    scenario.score++
+  } 
   keys[e.keyCode] = true
 
 })
@@ -59,6 +59,7 @@ function checkCollitions() {
       player1.x=canvas.width-100
       player1.y=canvas.height - 100
       huevosArr.push(huevolvl1)
+
     }
 
   })

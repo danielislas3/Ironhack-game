@@ -20,6 +20,15 @@ class Board {
     switch (this.score){
       case 1:
       this.img.src= images.niveles.bgMedioDia
+      huevolvl1.x=630
+      
+            arbol1.x=250
+            arbol1.y=400
+            //arbol 2 null
+            arbol2.x=1000
+            //vivora 1
+       
+        
       break;
       case 2:
       this.img.src= images.niveles.bgTarde
@@ -34,6 +43,7 @@ class Board {
     ctx.font = '20px sans-serif'
     ctx.fillStyle="white"
     ctx.fillText(`🍳🥚: ${this.score}`, canvas.width-100,50)
+    
     vidas == 3 ?  ctx.fillText("❤️❤️❤️", canvas.width-100,80) : 
     vidas == 2 ?  ctx.fillText("❤️❤️", canvas.width-100,80) :
     vidas == 1 ?  ctx.fillText("❤️", canvas.width-100,80) : tx.fillText("😭", canvas.width-100,80)
@@ -248,8 +258,8 @@ class Enemigos {
     this.y = y
     this.width = 45
     this.height = 45
-    this.snake1 = new Image()
-    this.snake1.src = images.enemigos.snake
+    this.snake = new Image()
+    this.snake.src = images.enemigos.snake
     this.direction=true
     this.anchoP=an
   }
@@ -263,7 +273,7 @@ class Enemigos {
     }
   }
   draw() {
-    ctx.drawImage(this.snake1, this.x, this.y, this.width, this.height)
+    ctx.drawImage(this.snake, this.x, this.y, this.width, this.height)
    }
       
     //this.move()
