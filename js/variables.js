@@ -1,3 +1,16 @@
+pygameq= document.querySelector('#pygame')
+pygameq.onclick=()=>{
+  startGame()
+}
+player1btn= document.querySelector('#player')
+player1btn.onclick=()=>{
+ player=1
+}
+player2btn= document.querySelector('#player2')
+player2btn.onclick=()=>{
+ player=2
+}
+
 let frames = 0
 let gameStarted = false
 const keys = []

@@ -7,14 +7,16 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
 }
-
-/* .container {
+.play{
+  position: absolute;
+}
+.container {
 
   width: 100vw;
   display: flex;
   align-content: center;
   justify-content: center;
-} */
+}
 
 #canvas {
   margin-top: 10px;
@@ -77,24 +79,28 @@ body {
   image-rendering: pixelated;
   transform: scale(1.5, 1.5);
 }
+button{
+  outline: none;
+}
 .eightbit-btn {
-  background: #92CD41;
+  outline: none;
+  background: #ab8a27;
   display: inline-block;
-  position: relative;
+  position: absolute;
   text-align: center;
-  font-size: 30px;
+  font-size: 10px;
   padding: 20px;
   font-family: 'Press Start 2P', cursive;
   text-decoration: none;
   color: white;
-  box-shadow: inset -4px -4px 0px 0px #4AA52E;
+  box-shadow: inset -4px -4px 0px 0px #795548f0;
 }
 .eightbit-btn:hover, .eightbit-btn:focus {
-  background: #76c442;
-  box-shadow: inset -6px -6px 0px 0px #4AA52E;
+  background: #66473cdc;
+  box-shadow: inset -6px -6px 0px 0px #66473cdc;
 }
 .eightbit-btn:active {
-  box-shadow: inset 4px 4px 0px 0px #4AA52E;
+  box-shadow: inset 4px 4px 0px 0px #66473cdc;
 }
 .eightbit-btn:before, .eightbit-btn:after {
   content: '';
